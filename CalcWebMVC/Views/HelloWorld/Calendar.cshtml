@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Календарь";
+    ViewBag.Header = "Календарь";
+}
+
+@{
+    string[] nameDay = new string[] { "Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота" };
+    string[] nameMonth = new string[] { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентабрь", "Октябрь", "Ноябрь", "Декабрь" };
+}
+
+<h2>Календарь</h2>
+
+<h3> @nameMonth[@ViewBag.data.Month - 1] @ViewBag.data.Year </h3>
+
+<div>
+    <table border="1">
+        <tr class="header">
+            <td><p>{Day}  </p></td>
+            <td><p>{nameDay} </p></td>
+
+            <td><p>{Stat}  </p></td>
+
+            <td><p>{Title}</p></td>
+            <td><p>{Message}</p></td>
+            <td></td>
+        </tr>
+        @foreach (DateTime s in @ViewBag.dates)
+        {
+            if (true)
+            {
+                <tr>
+                    <td><p>@s.Day</p></td>
+                    <td><p> @nameDay[(int)s.DayOfWeek] </p></td>
+
+                    <td><p>  </p></td>
+
+                    @foreach (CalcWebMVC.Models.CalcContext cp in @ViewBag.Calc)
+                    {
+                        if (cp.isEquel(cp.DateKey, s))
+                        {
+                            <td><p> @cp.Title </p></td>
+                            <td><p>@cp.Message </p></td>
+                        }
+                    }
+                </tr>
+            }
+
+
+        }
+    </table>
+</div>
+<div>
+    @if (true)
+    {
+        if (@ViewBag.innext.Month == DateTime.Now.Month)
+        {
+            <a href="/HelloWorld/Welcome ">Назад</a>
+        }
+        else
+        {
+            <a href="/HelloWorld/Calendar?day=@ViewBag.innext.Day&month=@ViewBag.innext.Month&year=@ViewBag.innext.Year">Назад</a>
+        }
+
+        if (@ViewBag.next.Month == DateTime.Now.Month)
+        {
+            <a href="/HelloWorld/Welcome ">Вперёд</a>
+        }
+        else
+        {
+            <a href="/HelloWorld/Calendar?day=@ViewBag.next.Day&month=@ViewBag.next.Month&year=@ViewBag.next.Year">Вперёд</a>
+        }
+    }
+</div>
+<p><a href="/HelloWorld/Delete">Удалить событие</a></p>
+<p><a href="/HelloWorld/Create?day=1">Создать событие</a></p>

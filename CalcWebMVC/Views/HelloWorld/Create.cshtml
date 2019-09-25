@@ -1,0 +1,28 @@
+﻿ @model CalcWebMVC.Models.CalcContext 
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новая событие</h2>
+ 
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.LabelFor(model => model.Title, "Название события")
+    <br />
+    @Html.EditorFor(model => model.Title)
+    <br /><br />
+    @Html.LabelFor(model => model.Message, "Событие")
+    <br />
+    @Html.EditorFor(model => model.Message)
+    <br /><br />
+    @Html.LabelFor(model => model.DateKey, "Время")
+    <br />
+    @Html.EditorFor(model => model.DateKey)
+    <br /><br />
+    
+    <input type="submit" value="Добавить" />
+}
+

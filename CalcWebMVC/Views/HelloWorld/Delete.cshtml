@@ -1,0 +1,33 @@
+﻿@model CalcWebMVC.Models.CalcContext
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление события</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title, "Имя события")
+    <br />
+    @Html.EditorFor(model => model.Title)
+    <br /><br />
+    @Html.LabelFor(model => model.DateKey, "Время")
+    <br />
+    @Html.EditorFor(model => model.DateKey)
+    <br /><br />
+
+    <input type="submit" value="Удалить" />
+
+
+}
+
+@foreach (CalcWebMVC.Models.CalcContext calc in @ViewBag.calcs)
+{
+    <td><p>@calc.DateKey @calc.Title </p></td>
+    <td><p> <a>Событие @calc.Title от @calc.DateKey</a> </p></td>
+    
+}
+
