@@ -12,14 +12,8 @@ namespace CalcWebMVC.Controllers
     public class HelloWorldController : Controller
     {
 
-        //EventRequest ev = new EventRequest();
-        //CalcContext[] calcmass;//Иниц бд
-
         public ActionResult Index()
         {
-            //ViewBag.Calc = ev.CalcContexts;
-            //calcmass = CalcContext.SSerializationReads2();
-            //ViewBag.calcmass = calcmass;
             return View();
         }
 
@@ -32,24 +26,19 @@ namespace CalcWebMVC.Controllers
         public ActionResult Create(CalcContext cl)
         {
 
-            cl.SerializationWrite();
-            //ev.Entry(cl).State = EntityState.Added;
-            //ev.SaveChanges();
-
-            return RedirectToAction("Welcome");
+            CalcWrite.SerializationWrite(cl);
+            return RedirectToAction("Calendar");
         }
 
-        public ActionResult Calendar(int day, int month, int year)
+        public ActionResult Calendar(string datetime)
         {
-
-            //ViewBag.Calc = ev.CalcContexts;/database
-            ViewBag.Calc = CalcContext.DeserializationComponents();
             DateTime dateTime;
-                if (month <= 12 && month >= 1 && day > 0 && day <= DateTime.DaysInMonth(year, month))
-                    dateTime = new DateTime(year, month, day);
-                else
-                    dateTime = DateTime.Today;
-
+            if (datetime == null) { dateTime = DateTime.Today; }
+            else
+            {
+                dateTime = DateTime.Parse(datetime);
+            }
+            ViewBag.Calc = CalcRead.DeserializationComponents();
             int days = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
             DateTime[] dates = new DateTime[days];
             for (int i = 0; i<days; i++) {
@@ -61,16 +50,14 @@ namespace CalcWebMVC.Controllers
            
             ViewBag.data = dateTime;
             ViewBag.days = days;
-            ViewBag.next = dateTime.AddMonths(1);
-            ViewBag.innext = dateTime.AddMonths(-1);
+            ViewBag.next = dateTime.AddMonths(1).ToShortDateString();
+            ViewBag.innext = dateTime.AddMonths(-1).ToShortDateString();
             return View();
         }
 
         public ActionResult Welcome()
         {
-
-            //ViewBag.Calc = ev.CalcContexts;/database
-            ViewBag.Calc = CalcContext.DeserializationComponents();
+            ViewBag.Calc = CalcRead.DeserializationComponents();
             DateTime dateTime = DateTime.Now;
             int days = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
             DateTime[] dates = new DateTime[days];
@@ -91,29 +78,19 @@ namespace CalcWebMVC.Controllers
 
         [HttpGet]
         public ActionResult Delete() {
-            ViewBag.calcs = CalcContext.DeserializationComponents() as List<CalcContext>;
+            ViewBag.calcs = CalcRead.DeserializationComponents() as List<CalcContext>;
             return View();
         }
         [HttpPost]
         public ActionResult Delete(CalcContext del)
         {
-
-            del = CalcContext.Find(del.DateKey, del.Title);
+            
+            del = SupportCalc.Find(del.DateKey, del.Title);
             if (del != null)
-                CalcContext.DeleteCalcFromJSON(del);
+                SupportCalc.DeleteCalcFromJSON(del);
             
-            return RedirectToAction("Welcome");
+            return RedirectToAction("Calendar");
         }
 
-        
-        public string Test()
-        {
-            CalcContext calcmass = CalcContext.SerializationRead(new DateTime(22,9,2019));
-            Random rnd = new Random();
-            CalcContext cl = new CalcContext(DateTime.Now, "titul" + rnd.Next(1000).ToString() , "message");
-            cl.SerializationWrite();
-            
-            return "Добавление завершено ... " + CalcContext.SerializationRead(DateTime.Now);
-        }
     }
 }

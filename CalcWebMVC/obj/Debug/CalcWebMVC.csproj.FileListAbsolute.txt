@@ -111,4 +111,3 @@ C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.xml
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.SqlServer.xml
-C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\database\datebase.json

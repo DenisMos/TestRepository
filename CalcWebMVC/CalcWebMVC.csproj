@@ -174,7 +174,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalcContext.cs" />
-    <Compile Include="Models\EventRequest.cs" />
+    <Compile Include="Models\CalcRead.cs" />
+    <Compile Include="Models\CalcWrite.cs" />
+    <Compile Include="Models\StreamCalc.cs" />
+    <Compile Include="Models\SupportCalc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +195,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="database\datebase.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -228,7 +228,9 @@
     <Content Include="Views\HelloWorld\Delete.cshtml" />
     <Content Include="Views\HelloWorld\Calendar.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="database\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

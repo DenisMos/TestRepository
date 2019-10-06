@@ -36,7 +36,10 @@
                     <td><p>@s.Day</p></td>
                     <td><p> @nameDay[(int)s.DayOfWeek] </p></td>
 
-                    <td><p>  </p></td>
+                     @if (s == DateTime.Today)
+                     { <td><p> toDay</p></td>}
+                     else
+                     {<td><p> </p></td>}
 
                     @foreach (CalcWebMVC.Models.CalcContext cp in @ViewBag.Calc)
                     {
@@ -56,23 +59,16 @@
 <div>
     @if (true)
     {
-        if (@ViewBag.innext.Month == DateTime.Now.Month)
+        if (true)
         {
-            <a href="/HelloWorld/Welcome ">Назад</a>
+            <a href="/HelloWorld/Calendar?datetime=@ViewBag.innext">Назад</a>
         }
-        else
+        
+        if (true)
         {
-            <a href="/HelloWorld/Calendar?day=@ViewBag.innext.Day&month=@ViewBag.innext.Month&year=@ViewBag.innext.Year">Назад</a>
+            <a href="/HelloWorld/Calendar?datetime=@ViewBag.next">Вперёд</a>
         }
-
-        if (@ViewBag.next.Month == DateTime.Now.Month)
-        {
-            <a href="/HelloWorld/Welcome ">Вперёд</a>
-        }
-        else
-        {
-            <a href="/HelloWorld/Calendar?day=@ViewBag.next.Day&month=@ViewBag.next.Month&year=@ViewBag.next.Year">Вперёд</a>
-        }
+        
     }
 </div>
 <p><a href="/HelloWorld/Delete">Удалить событие</a></p>

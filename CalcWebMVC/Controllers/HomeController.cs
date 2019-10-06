@@ -9,11 +9,11 @@ namespace CalcWebMVC.Controllers
 {
     public class HomeController : Controller
     {
-        EventRequest ev = new EventRequest();
+        
 
         public ActionResult Index()
         {
-            ViewBag.Cals = ev.CalcContexts;
+           
             return View();
         }
 
