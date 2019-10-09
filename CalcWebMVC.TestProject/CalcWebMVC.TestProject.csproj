@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalcContextTest.cs" />
-    <Compile Include="Models\CalcReadTests.cs" />
-    <Compile Include="Models\CalcWriteTests.cs" />
+    <Compile Include="Models\CalendariTests.cs" />
+    <Compile Include="Models\ControllCalendarTests.cs" />
+    <Compile Include="Models\DayNameClassTests.cs" />
     <Compile Include="Models\StreamCalcTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

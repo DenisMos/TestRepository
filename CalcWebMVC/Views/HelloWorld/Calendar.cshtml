@@ -8,6 +8,7 @@
 }
 
 @{
+    CalcWebMVC.Models.DayNameClass[] dayName = ViewBag.nameday;
     string[] nameDay = new string[] { "Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота" };
     string[] nameMonth = new string[] { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентабрь", "Октябрь", "Ноябрь", "Декабрь" };
 }
@@ -19,41 +20,47 @@
 <div>
     <table border="1">
         <tr class="header">
-            <td><p>{Day}  </p></td>
-            <td><p>{nameDay} </p></td>
-
-            <td><p>{Stat}  </p></td>
-
-            <td><p>{Title}</p></td>
-            <td><p>{Message}</p></td>
+            <td><p> Понедельник  </p></td>
+            <td><p> Вотрник </p></td>
+            <td><p> Среда  </p></td>
+            <td><p> Четверг </p></td>
+            <td><p> Пятница </p></td>
+            <td><p> Суббота </p></td>
+            <td><p> Воскресенье </p></td>
             <td></td>
         </tr>
-        @foreach (DateTime s in @ViewBag.dates)
-        {
-            if (true)
+
+            @for (int i = 0; i < (dayName.Length / 7); i++)
             {
-                <tr>
-                    <td><p>@s.Day</p></td>
-                    <td><p> @nameDay[(int)s.DayOfWeek] </p></td>
-
-                     @if (s == DateTime.Today)
-                     { <td><p> toDay</p></td>}
-                     else
-                     {<td><p> </p></td>}
-
-                    @foreach (CalcWebMVC.Models.CalcContext cp in @ViewBag.Calc)
-                    {
-                        if (cp.isEquel(cp.DateKey, s))
+            <tr>
+                @for (int u = 0; u < 7; u++)
+                {
+                <td>
+                    <p>
+                        @if (@dayName[i * 7 + u] != null)
                         {
-                            <td><p> @cp.Title </p></td>
-                            <td><p>@cp.Message </p></td>
+                            @dayName[i * 7 + u].DayInMonth
                         }
-                    }
-                </tr>
-            }
 
+                    </p>
+                    <form>
+                        <p>
+                            <textarea cols="20" rows="3" disabled>
+                                @foreach (CalcWebMVC.Models.CalcContext s in @ViewBag.Calc) {
+                                    if (s.DateKey.Day == @dayName[i * 7 + u].DayInMonth && s.DateKey.Month == dayName[i * 7 + u].Month && s.DateKey.Year == @dayName[i * 7 + u].Year) {
+                                        <text> @s.Title   @s.Message </text>
+                                       
+                                    }
+                                }
+                            </textarea>
+                        </p>
+                    </form>
+                </td>
 
+                }
+            </tr>
         }
+
     </table>
 </div>
 <div>
@@ -73,3 +80,4 @@
 </div>
 <p><a href="/HelloWorld/Delete">Удалить событие</a></p>
 <p><a href="/HelloWorld/Create?day=1">Создать событие</a></p>
+

@@ -102,7 +102,6 @@ C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\ru\System.Web.WebPages.Razo
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\ru\System.Net.Http.Formatting.resources.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\ru\System.Web.Http.resources.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\ru\System.Web.Http.WebHost.resources.dll
-C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\obj\Debug\CalcWebMVC.csprojAssemblyReference.cache
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\obj\Debug\CalcWebMVC.csproj.CoreCompileInputs.cache
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\obj\Debug\CalcWebMVC.csproj.CopyComplete
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\obj\Debug\CalcWebMVC.dll
@@ -111,3 +110,4 @@ C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.xml
 C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\ЕМ\source\repos\CalcWebMVC\CalcWebMVC\obj\Debug\CalcWebMVC.csprojAssemblyReference.cache

@@ -174,10 +174,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalcContext.cs" />
-    <Compile Include="Models\CalcRead.cs" />
-    <Compile Include="Models\CalcWrite.cs" />
+    <Compile Include="Models\Calendari.cs" />
+    <Compile Include="Models\ControllCalendar.cs" />
+    <Compile Include="Models\DayNameClass.cs" />
     <Compile Include="Models\StreamCalc.cs" />
-    <Compile Include="Models\SupportCalc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
